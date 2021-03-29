@@ -19,4 +19,16 @@ public class Landmark {
                 ", y=" + y +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
