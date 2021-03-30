@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Practice/dijkstraShortestPath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/GraphLinkDw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/GraphNodeDw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="SetUp For Dijkstra">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_controls.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/CostedPath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CA2-WaterfordRouteFinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CA2-WaterfordRouteFinder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/routeFind.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/routeFind.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/waterford.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/waterford.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/landmarks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/landmarks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/models/Landmark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/models/Landmark.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/routeFind.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/routeFind.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/landmarks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/landmarks.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Landmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Landmark.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/waterford.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/waterford.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +65,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
@@ -100,10 +96,11 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -145,7 +142,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="CA2-WaterfordRouteFinder" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\KinimoD\Desktop\javafx-sdk-15.0.1\lib --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="controller.*" />
@@ -212,8 +209,17 @@
       <workItem from="1616681679944" duration="606000" />
       <workItem from="1616884724699" duration="340000" />
       <workItem from="1616965249494" duration="3747000" />
-      <workItem from="1617017838907" duration="8661000" />
+      <workItem from="1617017838907" duration="13538000" />
+      <workItem from="1617091564722" duration="7271000" />
     </task>
+    <task id="LOCAL-00001" summary="SetUp For Dijkstra">
+      <created>1617045568662</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617045568662</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,67 +228,105 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="SetUp For Dijkstra" />
+    <option name="LAST_COMMIT_MESSAGE" value="SetUp For Dijkstra" />
   </component>
   <component name="WindowStateProjectService">
     <state x="368" y="192" key="#Project_Structure" timestamp="1616602008246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="368" y="192" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1616602008246" />
-    <state x="230" y="189" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616601973330">
+    <state x="819" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617093349293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="230" y="189" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616601973330" />
-    <state x="1030" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1617024318715">
+    <state x="819" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617093349293" />
+    <state x="1030" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1617100833350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1030" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617024318715" />
+    <state x="1030" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617100833350" />
     <state x="506" y="281" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616967208428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="506" y="281" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616967208428" />
-    <state x="877" y="31" key="CommitChangelistDialog2" timestamp="1617043729175">
+    <state x="863" y="31" key="CommitChangelistDialog2" timestamp="1617045567826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="877" y="31" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617043729175" />
-    <state width="1169" height="519" key="GridCell.Tab.0.bottom" timestamp="1617044867302">
+    <state x="863" y="31" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617045567826" />
+    <state x="503" y="343" key="FileChooserDialogImpl" timestamp="1617093237103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1169" height="519" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617044867302" />
-    <state width="1169" height="519" key="GridCell.Tab.0.center" timestamp="1617044867302">
+    <state x="503" y="343" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617093237103" />
+    <state width="1466" height="348" key="GridCell.Tab.0.bottom" timestamp="1617101119138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1169" height="519" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617044867302" />
-    <state width="1169" height="519" key="GridCell.Tab.0.left" timestamp="1617044867302">
+    <state width="1466" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
+    <state width="1466" height="348" key="GridCell.Tab.0.center" timestamp="1617101119138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1169" height="519" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617044867302" />
-    <state width="1169" height="519" key="GridCell.Tab.0.right" timestamp="1617044867302">
+    <state width="1466" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
+    <state width="1466" height="348" key="GridCell.Tab.0.left" timestamp="1617101119138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1169" height="519" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617044867302" />
-    <state width="1260" height="322" key="GridCell.Tab.1.bottom" timestamp="1617023325120">
+    <state width="1466" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
+    <state width="1466" height="348" key="GridCell.Tab.0.right" timestamp="1617101119138">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1260" height="322" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617023325120" />
-    <state width="1260" height="322" key="GridCell.Tab.1.center" timestamp="1617023325120">
+    <state width="1466" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
+    <state width="1626" height="312" key="GridCell.Tab.1.bottom" timestamp="1617097900555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1260" height="322" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617023325120" />
-    <state width="1260" height="322" key="GridCell.Tab.1.left" timestamp="1617023325120">
+    <state width="1626" height="312" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
+    <state width="1626" height="312" key="GridCell.Tab.1.center" timestamp="1617097900555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1260" height="322" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617023325120" />
-    <state width="1260" height="322" key="GridCell.Tab.1.right" timestamp="1617023325120">
+    <state width="1626" height="312" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
+    <state width="1626" height="312" key="GridCell.Tab.1.left" timestamp="1617097900555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1260" height="322" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617023325120" />
-    <state x="277" y="176" key="SettingsEditor" timestamp="1616601966782">
+    <state width="1626" height="312" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
+    <state width="1626" height="312" key="GridCell.Tab.1.right" timestamp="1617097900555">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="277" y="176" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1616601966782" />
+    <state width="1626" height="312" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
+    <state x="277" y="176" key="SettingsEditor" timestamp="1617093265939">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="277" y="176" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617093265939" />
+    <state x="904" y="238" key="Vcs.Push.Dialog.v2" timestamp="1617045570293">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="904" y="238" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617045570293" />
     <state x="665" y="107" width="1120" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617023961274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="665" y="107" width="1120" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617023961274" />
+    <state x="553" y="118" key="new project wizard" timestamp="1617093196898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="553" y="118" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1617093196898" />
+    <state x="968" y="244" key="run.anything.popup" timestamp="1617045659733">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="968" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617045659733" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/controller/Controller.java</url>
+          <line>220</line>
+          <properties class="controller.Controller" method="findCheapestPathDijkstra">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="e.destNode" language="JAVA" />
+        <watch expression="currentNode.adjList.get(1)" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

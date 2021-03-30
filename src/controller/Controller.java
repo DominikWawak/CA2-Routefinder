@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.CostedPath;
 import models.GraphLinkDw;
 import models.GraphNodeDw;
 import models.Landmark;
@@ -24,9 +25,7 @@ import models.Landmark;
 import javax.imageio.ImageIO;
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class Controller implements Initializable {
@@ -89,10 +88,10 @@ public class Controller implements Initializable {
 
             while((line=br.readLine())!= null ){
                 String [] values= line.split(",");
-                Landmark l = new Landmark(values[0],Integer.parseInt(values[1]),Integer.parseInt(values[2]));
+                Landmark l = new Landmark(values[0],Integer.parseInt(values[1]),Integer.parseInt(values[2]), values[3].equals("1"));
                 GraphNodeDw<Landmark> node = new GraphNodeDw<>(l);
                 landmarkNodes.add(node);
-            //    landmarks.add(l);
+               landmarks.add(l);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -108,14 +107,40 @@ public class Controller implements Initializable {
             i++;
         }
 
-        connectByIndex(0,1);
-        System.out.println(landmarkNodes.get(0).adjList.get(0).cost);
+        connectByIndex(0,9);
+        connectByIndex(0,2);
+        connectByIndex(0,3);
+        connectByIndex(3,4);
+        connectByIndex(4,2);
+        connectByIndex(2,5);
+        connectByIndex(5,9);
+        connectByIndex(5,8);
+        connectByIndex(8,9);
+        connectByIndex(8,6);
+        connectByIndex(6,7);
+        connectByIndex(1,9);
+        connectByIndex(1,6);
 
 
+        System.out.println("");
+        System.out.println("What is Connected");
+        System.out.println("");
+
+        for(GraphNodeDw<Landmark> n : landmarkNodes){
+            System.out.println("");
+            System.out.println(n.data.getName());
+            for(GraphLinkDw s : n.adjList) System.out.println(s.destNode.data +" Cost: " + s.cost);
+        }
 
 
+        CostedPath cpa = findCheapestPathDijkstra(landmarkNodes.get(2),landmarks.get(1));
+        System.out.println("");
+        System.out.println("=============================================================================");
+        System.out.println("Finding Path with Dijkstra");
+        for (GraphNodeDw<?> n :cpa.pathList)
+            System.out.println(n.data);
 
-
+        System.out.println("\nThe total path cost is: "+cpa.pathCost);
 
 
     }
@@ -193,6 +218,54 @@ public class Controller implements Initializable {
         Tooltip.install(mainImage, tl);
 
     }
+    public <T> CostedPath findCheapestPathDijkstra(GraphNodeDw<?> startNode, T lookingfor){
+        CostedPath cp = new CostedPath();
+        List<GraphNodeDw<?>> encountered = new ArrayList<>(),unencountered=new ArrayList<>();
+        startNode.nodeValue=0;
+        unencountered.add(startNode);
+        GraphNodeDw<?> currentNode;
+
+        do{
+            currentNode= unencountered.remove(0);
+            encountered.add(currentNode);
+
+            if(currentNode.data.equals(lookingfor)){
+                cp.pathList.add(currentNode);
+                cp.pathCost=currentNode.nodeValue;
+
+                while(currentNode!=startNode){
+                    boolean foundPrevPathNode = false;
+                    for(GraphNodeDw<?> n : encountered){
+                        for(GraphLinkDw e :n.adjList)
+                            if(e.destNode==currentNode && currentNode.nodeValue-e.cost==n.nodeValue){
+                                cp.pathList.add(0,n);
+                                currentNode =n;
+                                foundPrevPathNode=true;
+                                break;
+                            }
+                        if(foundPrevPathNode) break;
+                    }
+                }
+
+                for(GraphNodeDw<?> n : encountered) n.nodeValue=Integer.MAX_VALUE;
+                for (GraphNodeDw<?> n : encountered) n.nodeValue = Integer.MAX_VALUE;
+
+                return cp;
+            }
+            for(GraphLinkDw e :currentNode.adjList)
+                if(!encountered.contains(e.destNode)){
+                    e.destNode.nodeValue=Integer.min(e.destNode.nodeValue,currentNode.nodeValue+e.cost);
+
+                    unencountered.add(e.destNode);
+                }
+
+            unencountered.sort(Comparator.comparingInt(n -> n.nodeValue));
+
+        }while (!unencountered.isEmpty());
+        return null;
+
+    }
+
 }
 
 
