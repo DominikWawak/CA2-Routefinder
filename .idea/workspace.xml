@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="SetUp For Dijkstra">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_controls.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/CostedPath.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Dijkstra's algorithm simple done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CA2-WaterfordRouteFinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CA2-WaterfordRouteFinder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/routeFind.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/routeFind.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/landmarks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/landmarks.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/models/Landmark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/models/Landmark.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Landmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Landmark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/routeFind.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/routeFind.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/landmarks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/landmarks.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +208,8 @@
       <workItem from="1616884724699" duration="340000" />
       <workItem from="1616965249494" duration="3747000" />
       <workItem from="1617017838907" duration="13538000" />
-      <workItem from="1617091564722" duration="7271000" />
+      <workItem from="1617091564722" duration="8102000" />
+      <workItem from="1617103503203" duration="2772000" />
     </task>
     <task id="LOCAL-00001" summary="SetUp For Dijkstra">
       <created>1617045568662</created>
@@ -219,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617045568662</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Dijkstra's algorithm simple done">
+      <created>1617101226893</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617101226893</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +235,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="SetUp For Dijkstra" />
-    <option name="LAST_COMMIT_MESSAGE" value="SetUp For Dijkstra" />
+    <MESSAGE value="Dijkstra's algorithm simple done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dijkstra's algorithm simple done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="368" y="192" key="#Project_Structure" timestamp="1616602008246">
@@ -248,54 +255,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="506" y="281" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616967208428" />
-    <state x="863" y="31" key="CommitChangelistDialog2" timestamp="1617045567826">
+    <state x="863" y="31" key="CommitChangelistDialog2" timestamp="1617101226045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="863" y="31" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617045567826" />
+    <state x="863" y="31" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617101226045" />
     <state x="503" y="343" key="FileChooserDialogImpl" timestamp="1617093237103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="503" y="343" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617093237103" />
-    <state width="1466" height="348" key="GridCell.Tab.0.bottom" timestamp="1617101119138">
+    <state width="1466" height="348" key="GridCell.Tab.0.bottom" timestamp="1617106484955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1466" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
-    <state width="1466" height="348" key="GridCell.Tab.0.center" timestamp="1617101119138">
+    <state width="1466" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
+    <state width="1466" height="348" key="GridCell.Tab.0.center" timestamp="1617106484955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1466" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
-    <state width="1466" height="348" key="GridCell.Tab.0.left" timestamp="1617101119138">
+    <state width="1466" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
+    <state width="1466" height="348" key="GridCell.Tab.0.left" timestamp="1617106484955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1466" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
-    <state width="1466" height="348" key="GridCell.Tab.0.right" timestamp="1617101119138">
+    <state width="1466" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
+    <state width="1466" height="348" key="GridCell.Tab.0.right" timestamp="1617106484955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1466" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617101119138" />
-    <state width="1626" height="312" key="GridCell.Tab.1.bottom" timestamp="1617097900555">
+    <state width="1466" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
+    <state width="1626" height="312" key="GridCell.Tab.1.bottom" timestamp="1617101809961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1626" height="312" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
-    <state width="1626" height="312" key="GridCell.Tab.1.center" timestamp="1617097900555">
+    <state width="1626" height="312" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617101809961" />
+    <state width="1626" height="312" key="GridCell.Tab.1.center" timestamp="1617101809960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1626" height="312" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
-    <state width="1626" height="312" key="GridCell.Tab.1.left" timestamp="1617097900555">
+    <state width="1626" height="312" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617101809960" />
+    <state width="1626" height="312" key="GridCell.Tab.1.left" timestamp="1617101809960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1626" height="312" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
-    <state width="1626" height="312" key="GridCell.Tab.1.right" timestamp="1617097900555">
+    <state width="1626" height="312" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617101809960" />
+    <state width="1626" height="312" key="GridCell.Tab.1.right" timestamp="1617101809961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1626" height="312" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617097900555" />
+    <state width="1626" height="312" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617101809961" />
     <state x="277" y="176" key="SettingsEditor" timestamp="1617093265939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="176" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617093265939" />
-    <state x="904" y="238" key="Vcs.Push.Dialog.v2" timestamp="1617045570293">
+    <state x="904" y="238" key="Vcs.Push.Dialog.v2" timestamp="1617101228648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="904" y="238" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617045570293" />
+    <state x="904" y="238" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617101228648" />
     <state x="665" y="107" width="1120" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617023961274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -314,7 +321,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/Controller.java</url>
-          <line>220</line>
+          <line>225</line>
           <properties class="controller.Controller" method="findCheapestPathDijkstra">
             <option name="EMULATED" value="true" />
           </properties>

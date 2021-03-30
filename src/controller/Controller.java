@@ -133,7 +133,7 @@ public class Controller implements Initializable {
         }
 
 
-        CostedPath cpa = findCheapestPathDijkstra(landmarkNodes.get(2),landmarks.get(1));
+        CostedPath cpa = findCheapestPathDijkstra(landmarkNodes.get(0),landmarks.get(1));
         System.out.println("");
         System.out.println("=============================================================================");
         System.out.println("Finding Path with Dijkstra");
@@ -185,8 +185,13 @@ public class Controller implements Initializable {
     }
 
     public void connectByIndex(int a, int b){
-        landmarkNodes.get(a).connectToNodeUndirected(landmarkNodes.get(b),getDistance(a,b));
+
+        int discount = (landmarkNodes.get(b).data.getCultural())? 25:0;
+
+        landmarkNodes.get(a).connectToNodeUndirected(landmarkNodes.get(b),getDistance(a,b)-discount);
 }
+
+    //public void historicDiscount()
 
 
 
