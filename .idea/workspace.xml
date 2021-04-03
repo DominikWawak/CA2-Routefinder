@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Dijkstra's algorithm simple done">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_controls.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/routeFind.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/controller/routeFind.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/landmarks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CA2-WaterfordRouteFinder/landmarks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CA2-WaterfordRouteFinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CA2-WaterfordRouteFinder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/routeFind.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/routeFind.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/landmarks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/landmarks.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -62,8 +62,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,6 +74,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1qD6Mlfv5D11xBw9VEWpHSi7H3M" />
@@ -94,11 +95,19 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib/src.zip!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -140,7 +149,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="CA2-WaterfordRouteFinder" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\KinimoD\Desktop\javafx-sdk-15.0.1\lib --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\user\Desktop\openjfx-15.0.1_windows-x64_bin-sdk\javafx-sdk-15.0.1\lib --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="controller.*" />
@@ -191,6 +200,18 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -210,6 +231,9 @@
       <workItem from="1617017838907" duration="13538000" />
       <workItem from="1617091564722" duration="8102000" />
       <workItem from="1617103503203" duration="2772000" />
+      <workItem from="1617123470958" duration="694000" />
+      <workItem from="1617142065896" duration="2240000" />
+      <workItem from="1617448559124" duration="4432000" />
     </task>
     <task id="LOCAL-00001" summary="SetUp For Dijkstra">
       <created>1617045568662</created>
@@ -243,9 +267,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="368" y="192" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1616602008246" />
-    <state x="819" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617093349293">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617143298875">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1617143298875" />
     <state x="819" y="118" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617093349293" />
     <state x="1030" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1617100833350">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -259,25 +284,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="863" y="31" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617101226045" />
-    <state x="503" y="343" key="FileChooserDialogImpl" timestamp="1617093237103">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="459" y="57" key="DetectedRootsChooserDialog" timestamp="1617142804728">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="459" y="57" key="DetectedRootsChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1617142804728" />
+    <state x="335" y="166" key="FileChooserDialogImpl" timestamp="1617142802824">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="335" y="166" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1617142802824" />
     <state x="503" y="343" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617093237103" />
-    <state width="1466" height="348" key="GridCell.Tab.0.bottom" timestamp="1617106484955">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1617144342052">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1617144342052" />
     <state width="1466" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
-    <state width="1466" height="348" key="GridCell.Tab.0.center" timestamp="1617106484955">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1617144342052">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1617144342052" />
     <state width="1466" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
-    <state width="1466" height="348" key="GridCell.Tab.0.left" timestamp="1617106484955">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1617144342052">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1617144342052" />
     <state width="1466" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
-    <state width="1466" height="348" key="GridCell.Tab.0.right" timestamp="1617106484955">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1617144342052">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1617144342052" />
     <state width="1466" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617106484955" />
     <state width="1626" height="312" key="GridCell.Tab.1.bottom" timestamp="1617101809961">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -295,9 +329,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1626" height="312" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617101809961" />
-    <state x="277" y="176" key="SettingsEditor" timestamp="1617093265939">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="185" y="0" key="SettingsEditor" timestamp="1617143218304">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="185" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1617143218304" />
     <state x="277" y="176" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617093265939" />
     <state x="904" y="238" key="Vcs.Push.Dialog.v2" timestamp="1617101228648">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -307,6 +342,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="665" y="107" width="1120" height="840" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617023961274" />
+    <state x="450" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617448566643">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="450" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1617448566643" />
     <state x="553" y="118" key="new project wizard" timestamp="1617093196898">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -321,7 +360,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/Controller.java</url>
-          <line>225</line>
+          <line>218</line>
           <properties class="controller.Controller" method="findCheapestPathDijkstra">
             <option name="EMULATED" value="true" />
           </properties>

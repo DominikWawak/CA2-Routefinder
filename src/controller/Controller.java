@@ -1,12 +1,12 @@
 package controller;
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.effect.ColorAdjust;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,22 +14,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import models.CostedPath;
 import models.GraphLinkDw;
 import models.GraphNodeDw;
 import models.Landmark;
 
-
-import javax.imageio.ImageIO;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 
 public class Controller implements Initializable {
-
 
 
     @FXML
@@ -60,7 +57,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private ImageView mainImage,blackImage;
+    private ImageView mainImage, blackImage;
 
     private List<Landmark> landmarks = new ArrayList<>();
     private List<GraphNodeDw<Landmark>> landmarkNodes = new ArrayList<>();
@@ -75,72 +72,71 @@ public class Controller implements Initializable {
         mainImage.setFitWidth(image.getWidth());
 
 
-
         blackImage.setImage(image);
-       invertImage(image) ;
+        invertImage(image);
 
 
         //===========================================================================
         String path = "src/landmarks.csv";
-        String line="";
+        String line = "";
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
 
-            while((line=br.readLine())!= null ){
-                String [] values= line.split(",");
-                Landmark l = new Landmark(values[0],Integer.parseInt(values[1]),Integer.parseInt(values[2]), values[3].equals("1"));
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                Landmark l = new Landmark(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]), values[3].equals("1"));
                 GraphNodeDw<Landmark> node = new GraphNodeDw<>(l);
                 landmarkNodes.add(node);
-               landmarks.add(l);
+                landmarks.add(l);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         int i = 0;
-        for(GraphNodeDw<Landmark> l : landmarkNodes) {
+        for (GraphNodeDw<Landmark> l : landmarkNodes) {
 
             System.out.println(l.data);
-            Text t= new Text(l.data.getX()-3,l.data.getY()+3,i+"");
-            Circle c = new Circle(l.data.getX(),l.data.getY(),7,Color.RED);
-            anPane.getChildren().addAll(c,t);
+            Text t = new Text(l.data.getX() - 3, l.data.getY() + 3, i + "");
+            Circle c = new Circle(l.data.getX(), l.data.getY(), 7, Color.RED);
+            anPane.getChildren().addAll(c, t);
             i++;
         }
 
-        connectByIndex(0,9);
-        connectByIndex(0,2);
-        connectByIndex(0,3);
-        connectByIndex(3,4);
-        connectByIndex(4,2);
-        connectByIndex(2,5);
-        connectByIndex(5,9);
-        connectByIndex(5,8);
-        connectByIndex(8,9);
-        connectByIndex(8,6);
-        connectByIndex(6,7);
-        connectByIndex(1,9);
-        connectByIndex(1,6);
+        connectByIndex(0, 9);
+        connectByIndex(0, 2);
+        connectByIndex(0, 3);
+        connectByIndex(3, 4);
+        connectByIndex(4, 2);
+        connectByIndex(2, 5);
+        connectByIndex(5, 9);
+        connectByIndex(5, 8);
+        connectByIndex(8, 9);
+        connectByIndex(8, 6);
+        connectByIndex(6, 7);
+        connectByIndex(1, 9);
+        connectByIndex(1, 6);
 
 
         System.out.println("");
         System.out.println("What is Connected");
         System.out.println("");
 
-        for(GraphNodeDw<Landmark> n : landmarkNodes){
+        for (GraphNodeDw<Landmark> n : landmarkNodes) {
             System.out.println("");
             System.out.println(n.data.getName());
-            for(GraphLinkDw s : n.adjList) System.out.println(s.destNode.data +" Cost: " + s.cost);
+            for (GraphLinkDw s : n.adjList) System.out.println(s.destNode.data + " Cost: " + s.cost);
         }
 
 
-        CostedPath cpa = findCheapestPathDijkstra(landmarkNodes.get(0),landmarks.get(1));
+        CostedPath cpa = findCheapestPathDijkstra(landmarkNodes.get(0), landmarks.get(1));
         System.out.println("");
         System.out.println("=============================================================================");
         System.out.println("Finding Path with Dijkstra");
-        for (GraphNodeDw<?> n :cpa.pathList)
+        for (GraphNodeDw<?> n : cpa.pathList)
             System.out.println(n.data);
 
-        System.out.println("\nThe total path cost is: "+cpa.pathCost);
+        System.out.println("\nThe total path cost is: " + cpa.pathCost);
 
 
     }
@@ -161,10 +157,10 @@ public class Controller implements Initializable {
             for (int y = 0; y < height; y++) {
 
 
-                 double total = pixelReader.getColor(x,y).getRed() + pixelReader.getColor(x,y).getBlue()+pixelReader.getColor(x,y).getGreen();
-                Color borW = (total<1.5)? Color.WHITE : Color.BLACK;
+                double total = pixelReader.getColor(x, y).getRed() + pixelReader.getColor(x, y).getBlue() + pixelReader.getColor(x, y).getGreen();
+                Color borW = (total < 1.5) ? Color.WHITE : Color.BLACK;
 
-               pixelWriter.setColor(x, y, borW);
+                pixelWriter.setColor(x, y, borW);
 
                 mainImage.setImage(wImage);
                 // System.out.println(pixel);
@@ -173,27 +169,24 @@ public class Controller implements Initializable {
         }
 
 
-
     }
 
-    public int getDistance(int a , int b){
-        int x1 =landmarkNodes.get(a).data.getX();
-        int x2 =landmarkNodes.get(b).data.getX();
-        int y1=landmarkNodes.get(a).data.getY();
-        int y2 =landmarkNodes.get(b).data.getY();
-       return (int) Math. sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+    public int getDistance(int a, int b) {
+        int x1 = landmarkNodes.get(a).data.getX();
+        int x2 = landmarkNodes.get(b).data.getX();
+        int y1 = landmarkNodes.get(a).data.getY();
+        int y2 = landmarkNodes.get(b).data.getY();
+        return (int) Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
 
-    public void connectByIndex(int a, int b){
+    public void connectByIndex(int a, int b) {
 
-        int discount = (landmarkNodes.get(b).data.getCultural())? 25:0;
+        int discount = (landmarkNodes.get(b).data.getCultural()) ? 25 : 0;
 
-        landmarkNodes.get(a).connectToNodeUndirected(landmarkNodes.get(b),getDistance(a,b)-discount);
-}
+        landmarkNodes.get(a).connectToNodeUndirected(landmarkNodes.get(b), getDistance(a, b) - discount);
+    }
 
     //public void historicDiscount()
-
-
 
 
     public void closeApp(ActionEvent actionEvent) {
@@ -202,7 +195,6 @@ public class Controller implements Initializable {
 
 
     public void openNewTab(ActionEvent actionEvent) {
-
 
 
     }
@@ -215,7 +207,7 @@ public class Controller implements Initializable {
         int y = new Double(mouseEvent.getY()).intValue();
         PixelReader p = mainImage.getImage().getPixelReader();
 
-        System.out.println(x + " " + y + " hue: "  + p.getColor(x,y).getHue()+ "Sat"+ p.getColor(x,y).getSaturation());
+        System.out.println(x + " " + y + " hue: " + p.getColor(x, y).getHue() + "Sat" + p.getColor(x, y).getSaturation());
 
         tl = new Tooltip("You are here");
 
@@ -223,53 +215,85 @@ public class Controller implements Initializable {
         Tooltip.install(mainImage, tl);
 
     }
-    public <T> CostedPath findCheapestPathDijkstra(GraphNodeDw<?> startNode, T lookingfor){
+
+    public <T> CostedPath findCheapestPathDijkstra(GraphNodeDw<?> startNode, T lookingfor) {
         CostedPath cp = new CostedPath();
-        List<GraphNodeDw<?>> encountered = new ArrayList<>(),unencountered=new ArrayList<>();
-        startNode.nodeValue=0;
+        List<GraphNodeDw<?>> encountered = new ArrayList<>(), unencountered = new ArrayList<>();
+        startNode.nodeValue = 0;
         unencountered.add(startNode);
         GraphNodeDw<?> currentNode;
 
-        do{
-            currentNode= unencountered.remove(0);
+        do {
+            currentNode = unencountered.remove(0);
             encountered.add(currentNode);
 
-            if(currentNode.data.equals(lookingfor)){
+            if (currentNode.data.equals(lookingfor)) {
                 cp.pathList.add(currentNode);
-                cp.pathCost=currentNode.nodeValue;
+                cp.pathCost = currentNode.nodeValue;
 
-                while(currentNode!=startNode){
+                while (currentNode != startNode) {
                     boolean foundPrevPathNode = false;
-                    for(GraphNodeDw<?> n : encountered){
-                        for(GraphLinkDw e :n.adjList)
-                            if(e.destNode==currentNode && currentNode.nodeValue-e.cost==n.nodeValue){
-                                cp.pathList.add(0,n);
-                                currentNode =n;
-                                foundPrevPathNode=true;
+                    for (GraphNodeDw<?> n : encountered) {
+                        for (GraphLinkDw e : n.adjList)
+                            if (e.destNode == currentNode && currentNode.nodeValue - e.cost == n.nodeValue) {
+                                cp.pathList.add(0, n);
+                                currentNode = n;
+                                foundPrevPathNode = true;
                                 break;
                             }
-                        if(foundPrevPathNode) break;
+                        if (foundPrevPathNode) break;
                     }
                 }
 
-                for(GraphNodeDw<?> n : encountered) n.nodeValue=Integer.MAX_VALUE;
+                for (GraphNodeDw<?> n : encountered) n.nodeValue = Integer.MAX_VALUE;
                 for (GraphNodeDw<?> n : encountered) n.nodeValue = Integer.MAX_VALUE;
 
                 return cp;
             }
-            for(GraphLinkDw e :currentNode.adjList)
-                if(!encountered.contains(e.destNode)){
-                    e.destNode.nodeValue=Integer.min(e.destNode.nodeValue,currentNode.nodeValue+e.cost);
+            for (GraphLinkDw e : currentNode.adjList)
+                if (!encountered.contains(e.destNode)) {
+                    e.destNode.nodeValue = Integer.min(e.destNode.nodeValue, currentNode.nodeValue + e.cost);
 
                     unencountered.add(e.destNode);
                 }
 
             unencountered.sort(Comparator.comparingInt(n -> n.nodeValue));
 
-        }while (!unencountered.isEmpty());
+        } while (!unencountered.isEmpty());
         return null;
 
     }
+
+    public static <T> List<GraphNodeDw<?>> findPathBFS(GraphNodeDw<?> startNode, T lookingFor) {
+        List<List<GraphNodeDw<?>>> agenda = new ArrayList<>();
+        List<GraphNodeDw<?>> firstAgendaPath = new ArrayList<>(), resultPath;
+        firstAgendaPath.add(startNode);
+        agenda.add(firstAgendaPath);
+        resultPath = findPathBFS(agenda, null, lookingFor);
+        Collections.reverse(resultPath);
+        return resultPath;
+    }
+
+    public static <T> List<GraphNodeDw<?>> findPathBFS(List<List<GraphNodeDw<?>>> agenda, List<GraphNodeDw<?>> encountered, T lookingFor) {
+        if (agenda.isEmpty()) return null;
+        List<GraphNodeDw<?>> nextPath = agenda.remove(0);
+        GraphNodeDw<?> currentNode = nextPath.get(0);
+        if (currentNode.data.equals(lookingFor)) return nextPath;
+        if (encountered == null) encountered = new ArrayList<>();
+
+        encountered.add(currentNode);
+
+        for (GraphNodeDw<?> adjNode : currentNode.adjList) {                        //Not compatible??
+            if (!encountered.contains(adjNode)) {
+                List<GraphNodeDw<?>> newPath = new ArrayList<>(nextPath);
+
+                newPath.add(0, adjNode);
+                agenda.add(newPath);
+            }
+        }
+        return findPathBFS(agenda,encountered,lookingFor);
+    }
+
 
 }
 
