@@ -14,10 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import models.CostedPath;
-import models.GraphLinkDw;
-import models.GraphNodeDw;
-import models.Landmark;
+import models.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -60,6 +57,7 @@ public class Controller implements Initializable {
     private ImageView mainImage, blackImage;
 
     private List<Landmark> landmarks = new ArrayList<>();
+    private List<GraphNodeAl<Landmark>> landmarkALnodes=new ArrayList<>();
     private List<GraphNodeDw<Landmark>> landmarkNodes = new ArrayList<>();
     private Tooltip tl;
 
@@ -86,7 +84,9 @@ public class Controller implements Initializable {
                 String[] values = line.split(",");
                 Landmark l = new Landmark(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]), values[3].equals("1"));
                 GraphNodeDw<Landmark> node = new GraphNodeDw<>(l);
+                GraphNodeAl<Landmark> node2=new GraphNodeAl<>(l);
                 landmarkNodes.add(node);
+                landmarkALnodes.add(node2);
                 landmarks.add(l);
             }
         } catch (IOException e) {
@@ -103,6 +103,14 @@ public class Controller implements Initializable {
             i++;
         }
 
+        for (GraphNodeAl<Landmark> l : landmarkALnodes) {
+
+            System.out.println(l.data);
+            Text t = new Text(l.data.getX() - 3, l.data.getY() + 3, i + "");
+            Circle c = new Circle(l.data.getX(), l.data.getY(), 7, Color.RED);
+            anPane.getChildren().addAll(c, t);
+            i++;
+        }
         connectByIndex(0, 9);
         connectByIndex(0, 2);
         connectByIndex(0, 3);
@@ -138,7 +146,15 @@ public class Controller implements Initializable {
 
         System.out.println("\nThe total path cost is: " + cpa.pathCost);
 
+/*
+        List<GraphNodeAl<?>> bfsPath=findPathBFS(//dnt know what to put in here);
+                for(GraphNodeAl<?>n:bfsPath)System.out.println(n.data);
 
+
+       CostedPathAl cpal=searchGraphDepthFirstCheapestPath(landmarkALnodes.get(0),null,0,"Tower Hotel");
+       for(GraphNodeAl2<?>n:cpal.pathList)
+           System.out.println(n.data);
+       System.out.println("PathCost= "+cpal.pathCost);*/
     }
 
 
@@ -264,9 +280,9 @@ public class Controller implements Initializable {
 
     }
 
-    public static <T> List<GraphNodeDw<?>> findPathBFS(GraphNodeDw<?> startNode, T lookingFor) {
-        List<List<GraphNodeDw<?>>> agenda = new ArrayList<>();
-        List<GraphNodeDw<?>> firstAgendaPath = new ArrayList<>(), resultPath;
+    public static <T> List<GraphNodeAl<?>> findPathBFS(GraphNodeAl<?> startNode, T lookingFor) {
+        List<List<GraphNodeAl<?>>> agenda = new ArrayList<>();
+        List<GraphNodeAl<?>> firstAgendaPath = new ArrayList<>(), resultPath;
         firstAgendaPath.add(startNode);
         agenda.add(firstAgendaPath);
         resultPath = findPathBFS(agenda, null, lookingFor);
@@ -274,24 +290,72 @@ public class Controller implements Initializable {
         return resultPath;
     }
 
-    public static <T> List<GraphNodeDw<?>> findPathBFS(List<List<GraphNodeDw<?>>> agenda, List<GraphNodeDw<?>> encountered, T lookingFor) {
+    public static <T> List<GraphNodeAl<?>> findPathBFS(List<List<GraphNodeAl<?>>> agenda, List<GraphNodeAl<?>> encountered, T lookingFor) {
         if (agenda.isEmpty()) return null;
-        List<GraphNodeDw<?>> nextPath = agenda.remove(0);
-        GraphNodeDw<?> currentNode = nextPath.get(0);
+        List<GraphNodeAl<?>> nextPath = agenda.remove(0);
+        GraphNodeAl<?> currentNode = nextPath.get(0);
         if (currentNode.data.equals(lookingFor)) return nextPath;
         if (encountered == null) encountered = new ArrayList<>();
 
         encountered.add(currentNode);
+                for (GraphNodeAl<?> adjNode : currentNode.adjlist) {                        //Not compatible??
+                if (!encountered.contains(adjNode)) {
+                    List<GraphNodeAl<?>> newPath = new ArrayList<>(nextPath);
+                    newPath.add(0, adjNode);
+                    agenda.add(newPath);
+                }
+            }
 
-        for (GraphNodeDw<?> adjNode : currentNode.adjList) {                        //Not compatible??
-            if (!encountered.contains(adjNode)) {
-                List<GraphNodeDw<?>> newPath = new ArrayList<>(nextPath);
+        return findPathBFS(agenda, encountered, lookingFor);
+    }
 
-                newPath.add(0, adjNode);
-                agenda.add(newPath);
+
+    public void traverseGraphDepthFirst(GraphNodeAl2<?> from , List<GraphNodeAl2<?>> encountered){
+        System.out.println(from.data);
+        if(encountered==null) encountered=new ArrayList<>();
+        encountered.add(from);
+        for(GraphLinkAl adjLink:from.adjList){
+            if (!encountered.contains(adjLink.destNode)) traverseGraphDepthFirst(adjLink.destNode,encountered);
+        }
+    }
+
+    public void traverseGraphFirstShowingTotalCost(GraphNodeAl2<?> from,List<GraphNodeAl2<?>> encountered,int totalCost){
+        System.out.println(from.data+"(Total cost): "+totalCost+")");
+        if(encountered==null) encountered=new ArrayList<>();
+        encountered.add(from);
+
+        Collections.sort(from.adjList,(a,b)->a.cost-b.cost);
+        for(GraphLinkAl adjLink:from.adjList){
+            if(!encountered.contains(adjLink.destNode)){
+                traverseGraphFirstShowingTotalCost(adjLink.destNode,encountered,totalCost+adjLink.cost);
             }
         }
-        return findPathBFS(agenda,encountered,lookingFor);
+    }
+
+    public <T> CostedPathAl searchGraphDepthFirstCheapestPath(GraphNodeAl2<?> from,List<GraphNodeAl2<?>> encountered,int totalCost,T lookingFor){
+
+
+        if(from.data.equals(lookingFor)){
+            CostedPathAl cp=new CostedPathAl();
+            cp.pathList.add(from);
+            cp.pathCost=totalCost;
+            return cp;
+        }
+
+        if(encountered==null) encountered=new ArrayList<>();
+        encountered.add(from);
+        List<CostedPathAl> allPaths=new ArrayList<>();
+
+        for(GraphLinkAl adjLink:from.adjList){
+            if(!encountered.contains(adjLink.destNode)){
+                CostedPathAl temp=searchGraphDepthFirstCheapestPath(adjLink.destNode,new ArrayList<>(encountered),totalCost+adjLink.cost,lookingFor);
+
+                if(temp==null) continue;
+                temp.pathList.add(0,from);
+                allPaths.add(temp);
+
+            }
+        }return allPaths.isEmpty()?null:Collections.min(allPaths,(p1,p2)->p1.pathCost-p2.pathCost);
     }
 
 
