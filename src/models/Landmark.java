@@ -16,12 +16,8 @@ public class Landmark {
 
     @Override
     public String toString() {
-        return "Landmark{" +
-                "name='" + name + '\'' +
-                ", isCultural=" + isCultural +
-                ", x=" + x +
-                ", y=" + y +
-                '}';
+        return
+                 name  ;
     }
 
     public Boolean getCultural() {

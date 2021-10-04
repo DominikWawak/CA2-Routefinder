@@ -6,7 +6,7 @@ import java.util.List;
 public class CostedPath {
 
     //private  T CostedPath;
-    public List<GraphNodeDw> pathList = new ArrayList();
+    public List<GraphNodeDw<?>> pathList = new ArrayList();
     public int pathCost;
 
 

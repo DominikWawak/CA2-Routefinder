@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="812.0" prefWidth="1951.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="1221.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
-      <MenuBar layoutY="4.0" prefHeight="27.0" prefWidth="1579.0">
+      <MenuBar layoutY="4.0" prefHeight="27.0" prefWidth="1221.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -25,7 +31,9 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-                  <MenuItem fx:id="rgbChannels" mnemonicParsing="false" text="show RGB Channels" />
+                  <MenuItem mnemonicParsing="false" onAction="#openPathPane" text="Generate a path " />
+                  <MenuItem fx:id="DijksAlgoMenuBtn" mnemonicParsing="false" onAction="#openDijksAlgo" text="Dijkstra's Algorithm" />
+                  <MenuItem mnemonicParsing="false" onAction="#clearPane" text="Clear Pane" />
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
@@ -36,14 +44,60 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane fx:id="tabPane" layoutY="32.0" prefHeight="804.0" prefWidth="1579.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" layoutY="27.0" prefHeight="809.0" prefWidth="1221.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="tab1" text="Tab 1">
             <content>
-              <AnchorPane fx:id="anPane" minHeight="0.0" minWidth="0.0" prefHeight="744.0" prefWidth="1373.0">
+              <AnchorPane fx:id="anPane" minHeight="0.0" minWidth="0.0" prefHeight="744.0" prefWidth="1373.0" style="-fx-background-color: #59452b;">
                      <children>
                         <Separator layoutX="1288.0" orientation="VERTICAL" prefHeight="760.0" prefWidth="14.0" />
-                        <ImageView fx:id="mainImage" fitHeight="678.0" fitWidth="1001.0" onMousePressed="#mouseClick" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="mainImage" fitHeight="678.0" fitWidth="985.0" onMousePressed="#mouseClick" pickOnBounds="true" preserveRatio="true" />
+                        <Pane fx:id="dijkstraPane" layoutX="968.0" layoutY="31.0" prefHeight="719.0" prefWidth="239.0" style="-fx-background-color: #cfa46b;" visible="false">
+                           <children>
+                              <TextArea fx:id="routeBox" layoutX="28.0" layoutY="477.0" prefHeight="195.0" prefWidth="206.0" />
+                              <Label layoutX="67.0" layoutY="33.0" text=" Dijkstra’s algorithm" />
+                              <ComboBox fx:id="startNode" layoutX="45.0" layoutY="70.0" prefWidth="150.0" promptText="Start " />
+                              <ComboBox fx:id="endNode" layoutX="45.0" layoutY="108.0" prefWidth="150.0" promptText="Finish" />
+                              <RadioButton fx:id="histRoute" layoutX="46.0" layoutY="149.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="149.0" text="Historic Route" />
+                              <Label layoutX="36.0" layoutY="452.0" text="Your Route " />
+                              <Button layoutX="87.0" layoutY="418.0" mnemonicParsing="false" onAction="#findPathDij" text="Find Path" />
+                              <ComboBox fx:id="waypoints" layoutX="50.0" layoutY="183.0" prefHeight="25.0" prefWidth="117.0" promptText="Waypoint" />
+                              <Button layoutX="172.0" layoutY="183.0" mnemonicParsing="false" onAction="#addWaypoint" text="+" />
+                              <TextArea fx:id="waypointsList" layoutX="44.0" layoutY="218.0" prefHeight="79.0" prefWidth="153.0" />
+                              <Button layoutX="86.0" layoutY="672.0" mnemonicParsing="false" onAction="#resetDij" text="Reset" />
+                              <ComboBox fx:id="avoidedLand" layoutX="42.0" layoutY="322.0" prefHeight="25.0" prefWidth="122.0" promptText="Avoid" />
+                              <Button layoutX="169.0" layoutY="322.0" mnemonicParsing="false" onAction="#addToAvoid" text="+" />
+                              <TextArea fx:id="avoidBox" layoutX="42.0" layoutY="347.0" prefHeight="75.0" prefWidth="158.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pathPane" layoutX="956.0" layoutY="16.0" prefHeight="728.0" prefWidth="264.0" style="-fx-background-color: #c69874;" visible="false">
+                           <children>
+                              <ComboBox fx:id="start" layoutX="76.0" layoutY="42.0" prefWidth="150.0" promptText="Start" />
+                              <ComboBox fx:id="end" layoutX="76.0" layoutY="90.0" prefWidth="150.0" promptText="End" />
+                              <Label layoutX="104.0" layoutY="143.0" text="Single path">
+                                 <font>
+                                    <Font name="Bodoni MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="101.0" layoutY="188.0" mnemonicParsing="false" onAction="#findSinglePathBFS" text="Find single path" />
+                              <Label layoutX="83.0" layoutY="352.0" text="Multiple Paths">
+                                 <font>
+                                    <Font name="Bodoni MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="95.0" layoutY="14.0" text="Choose...">
+                                 <font>
+                                    <Font name="Bodoni MT" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="35.0" layoutY="464.0" prefHeight="17.0" prefWidth="113.0" text="Choose a path" />
+                              <Spinner fx:id="selectPath" layoutX="170.0" layoutY="460.0" prefHeight="25.0" prefWidth="62.0" />
+                              <Button layoutX="55.0" layoutY="396.0" mnemonicParsing="false" onAction="#findMultiplePathsDFS" prefHeight="25.0" prefWidth="155.0" text="Generate  Multiple Paths" />
+                              <Button layoutX="68.0" layoutY="519.0" mnemonicParsing="false" onAction="#showSelectedPath" prefHeight="25.0" prefWidth="129.0" text="Show Selected Path" />
+                              <TextArea fx:id="multiplePathBox" layoutX="45.0" layoutY="563.0" prefHeight="143.0" prefWidth="200.0" />
+                              <TextArea fx:id="singlePathBox" layoutX="46.0" layoutY="241.0" prefHeight="101.0" prefWidth="198.0" />
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
             </content>
@@ -59,10 +113,5 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Pane layoutX="1651.0" layoutY="172.0" prefHeight="511.0" prefWidth="239.0">
-         <children>
-            <TextArea layoutX="17.0" layoutY="97.0" prefHeight="352.0" prefWidth="206.0" />
-         </children>
-      </Pane>
    </children>
 </Pane>
